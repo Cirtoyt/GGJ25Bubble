@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
-public class UI : MonoBehaviour
+public class UI : MonoSingleton<UI>
 {
 
     // Health Variables
@@ -27,8 +27,10 @@ public class UI : MonoBehaviour
 
 
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         MaxHearts = 6;
     }
 
@@ -69,6 +71,10 @@ public class UI : MonoBehaviour
         {
             timeRemaing = 0;
         }
+        if (timeRemaing > max)
+        {
+            timeRemaing = max;
+        }
         if (timeRemaing > 0)
         {
             timeRemaing -= Time.deltaTime;
@@ -89,6 +95,16 @@ public class UI : MonoBehaviour
         
         float fillAmount = (float)current / (float)max;
         mask.fillAmount = fillAmount;
+    }
+
+    public float GetTimerProgress(bool reverse = false)
+    {
+        float timerValueProgressAgainstMax = (float)timeRemaing / (float)max;
+
+        if (!reverse)
+            timerValueProgressAgainstMax = 1 - timerValueProgressAgainstMax;
+
+        return timerValueProgressAgainstMax;
     }
 
     public void Damage()

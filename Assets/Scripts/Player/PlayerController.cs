@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoSingleton<PlayerController>
 {
     [Header("Statics")]
     [SerializeField] private Rigidbody rb;
@@ -20,8 +20,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookInput = Vector2.zero;
     private bool fireWeaponInput = false;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
