@@ -5,16 +5,21 @@ using UnityEngine.Splines;
 
 public class Spaceship : MonoSingleton<Spaceship>
 {
-    [SerializeField] private SplineContainer spline;
+    [SerializeField] private bool followLevelSpline = true;
 
     private void Start()
     {
-        transform.position = spline.EvaluatePosition(0);
+        if (followLevelSpline)
+        {
+            transform.position = GameManager.Instance.LevelSpline.EvaluatePosition(0);
+        }
     }
 
     private void Update()
     {
-        transform.position = spline.EvaluatePosition(UI.Instance.GetTimerProgress());
-        Debug.Log(UI.Instance.GetTimerProgress());
+        if (followLevelSpline)
+        {
+            transform.position = GameManager.Instance.LevelSpline.EvaluatePosition(UI.Instance.GetTimerProgress());
+        }
     }
 }
