@@ -255,7 +255,7 @@ Rigidbody:
   m_GameObject: {fileID: 212652896}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.3
   m_AngularDrag: 8
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -327,9 +327,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 212652897}
   jetpackAcceleration: 1000
-  pitchRotationSpeed: 200
-  yawRotationSpeed: 200
-  rollRotationSpeed: 100
+  pitchRotationSpeed: 0.05
+  yawRotationSpeed: 0.05
+  rollRotationSpeed: 0.25
   maxVelocity: 15
 --- !u!114 &212652903
 MonoBehaviour:

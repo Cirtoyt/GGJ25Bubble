@@ -33,15 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnLook(InputValue value)
     {
-        float lookX = 0;
-        if (value.Get<Vector2>().x != 0)
-            lookX = value.Get<Vector2>().x > 0 ? 1 : -1;
-
-        float lookY = 0;
-        if (value.Get<Vector2>().y != 0)
-            lookY = value.Get<Vector2>().y > 0 ? 1 : -1;
-
-        lookInput = new Vector2(lookX, lookY);
+        lookInput = new Vector2(value.Get<Vector2>().x, value.Get<Vector2>().y);
     }
 
     private void OnFireWeapon(InputValue value)
@@ -60,6 +52,6 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Rotate pitch, yaw, and roll
-        transform.Rotate(new Vector3(-lookInput.y * pitchRotationSpeed * Time.deltaTime, lookInput.x * yawRotationSpeed * Time.deltaTime, moveInput.x * rollRotationSpeed * Time.deltaTime), Space.Self);
+        transform.Rotate(new Vector3(-lookInput.y * pitchRotationSpeed, lookInput.x * yawRotationSpeed, moveInput.x * rollRotationSpeed), Space.Self);
     }
 }
