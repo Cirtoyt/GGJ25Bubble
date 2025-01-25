@@ -91,7 +91,8 @@ public class RammingEnemyAttack : EnemyAttackModule
             StopCoroutine(attackCoroutine);
             attackCoroutine = null;
 
-            if (collision.gameObject.TryGetComponent(out IDamageable damageable))
+            // Check hitting damageable, but not other enemies
+            if (collision.gameObject.TryGetComponent(out IDamageable damageable) && collision.gameObject.GetComponent<EnemyController>() == null)
             {
                 damageable.TakeDamage(AttackDamage);
             }
