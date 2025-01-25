@@ -28,7 +28,7 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
     private bool fireWeaponInput = false;
 
     private Vector3 originLocalCameraLocalPos;
-    private bool dying
+    private bool dying = false;
 
     protected override void Awake()
     {
@@ -57,6 +57,9 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
 
     private void FixedUpdate()
     {
+        if (dying)
+            return;
+
         // Apply movement input
         Vector3 forwardMoveInput = transform.forward * moveInput.y * (jetpackAcceleration + (moveInput.x != 0 ? rollAccelerationBoost : 0)) * Time.deltaTime;
         rb.AddForce(forwardMoveInput, ForceMode.Acceleration);
@@ -65,6 +68,9 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
 
     private void Update()
     {
+        if (dying)
+            return;
+
         // Rotate pitch, yaw, and roll
         transform.Rotate(new Vector3(-lookInput.y * pitchRotationSpeed * Time.deltaTime, lookInput.x * yawRotationSpeed * Time.deltaTime, -moveInput.x * rollRotationSpeed * Time.deltaTime), Space.Self);
 
@@ -77,11 +83,15 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
 
     public void Attack()
     {
-        
+        if (dying)
+            return;
     }
 
     public void TakeDamage(int damage)
     {
+        if (dying)
+            return;
+
         for (int i = 0; i < damage; i++)
         {
             UI.Instance.Damage();
@@ -90,6 +100,10 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
 
     public void OnDeath()
     {
+        dying = true;
+
         // Play death sound
+
+        // Trigger end of game cut-scene
     }
 }
