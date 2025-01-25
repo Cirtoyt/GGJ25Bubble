@@ -274,7 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 8119674774735217059}
   cam: {fileID: 1396178043640762842}
-  jetpackAcceleration: 1000
+  jetpackAcceleration: 850
   pitchRotationSpeed: 20
   yawRotationSpeed: 20
   rollRotationSpeed: 100

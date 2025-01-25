@@ -658,8 +658,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -728,10 +728,10 @@ MonoBehaviour:
   FullHeart: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   EmptyHeart: {fileID: 0}
   MaxHearts: 6
-  timeRemaing: 40
+  timeRemaing: 180
   timerText: {fileID: 7643333966482905155}
   current: 0
-  max: 40
+  max: 180
   mask: {fileID: 8680830441456751392}
   powerUpAmmo: 0000000000000000
   powerupAmmoText:
