@@ -81,6 +81,11 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
         // Fire weapon
     }
 
+    public void TryAttack()
+    {
+
+    }
+
     public void Attack()
     {
         if (dying)

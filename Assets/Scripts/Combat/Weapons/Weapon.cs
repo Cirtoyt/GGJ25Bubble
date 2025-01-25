@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] int speed;
     [SerializeField] int pierce;
-    [SerializeField] float _audioLength = 1;
+    [SerializeField] float _hitAudioDuration = 1;
 
     public enum WeaponType
     {
@@ -44,7 +44,7 @@ public class Weapon : MonoBehaviour
         if (pierce < 1)
         {
             mesh.SetActive(false);
-            Destroy(mesh, _audioLength);
+            Destroy(mesh, _hitAudioDuration);
         }
         pierce--;
     }
