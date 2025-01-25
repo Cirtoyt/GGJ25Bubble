@@ -27,18 +27,16 @@ public class UI : MonoBehaviour
 
 
 
-    void Start()
+    void Awake()
     {
         MaxHearts = 6;
     }
 
-    // Update is called once per frame
     void Update()
     {
         SetHealth();
         SetTimer();
         GetFill();
-        Damage();
     }
 
     void SetHealth()
@@ -93,18 +91,15 @@ public class UI : MonoBehaviour
         mask.fillAmount = fillAmount;
     }
 
-    void Damage()
+    public void Damage()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
+        if (Health > 0)
             Health--;
-        }
-        
-        if(Health < MaxHearts)
-        if (Input.GetMouseButtonDown(1))
-        {
-            Health++;
-        }
     }
 
+    public void Heal()
+    {
+        if (Health < MaxHearts)
+            Health++;
+    }
 }
