@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
-public class UI : MonoBehaviour
+public class UI : MonoSingleton<UI>
 {
 
     // Health Variables
@@ -31,15 +31,13 @@ public class UI : MonoBehaviour
 
     // Damage? 
 
-    Weapon Weapon;
-
-
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         MaxHearts = 6;
     }
 
-    // Update is called once per frame
     void Update()
     {
         SetHealth();
@@ -79,6 +77,10 @@ public class UI : MonoBehaviour
         {
             timeRemaing = 0;
         }
+        if (timeRemaing > max)
+        {
+            timeRemaing = max;
+        }
         if (timeRemaing > 0)
         {
             timeRemaing -= Time.deltaTime;
@@ -101,21 +103,26 @@ public class UI : MonoBehaviour
         mask.fillAmount = fillAmount;
     }
 
-    void Damage()
+    public float GetTimerProgress(bool reverse = false)
     {
-        // for testing purpsoes ;)
-        if (Input.GetMouseButtonDown(0))
-        {
-            Health--;
-        }
+        float timerValueProgressAgainstMax = (float)timeRemaing / (float)max;
 
-        if (Health < MaxHearts)
-            if (Input.GetMouseButtonDown(1))
-            {
-                Health++;
-            }
+        if (!reverse)
+            timerValueProgressAgainstMax = 1 - timerValueProgressAgainstMax;
+
+        return timerValueProgressAgainstMax;
     }
 
+    public void Damage()
+    {
+        if (Health > 0)
+            Health--;
+    }
+
+    public void Heal()
+    {
+        if (Health < MaxHearts)
+            Health++;
     void addPowerUp()
     {
         for (int i = 0; i < 2; i++)

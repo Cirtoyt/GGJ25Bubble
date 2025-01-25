@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoSingleton<PlayerController>
 {
     [Header("Statics")]
     [SerializeField] private Rigidbody rb;
@@ -20,8 +20,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookInput = Vector2.zero;
     private bool fireWeaponInput = false;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -33,15 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnLook(InputValue value)
     {
-        float lookX = 0;
-        if (value.Get<Vector2>().x != 0)
-            lookX = value.Get<Vector2>().x > 0 ? 1 : -1;
-
-        float lookY = 0;
-        if (value.Get<Vector2>().y != 0)
-            lookY = value.Get<Vector2>().y > 0 ? 1 : -1;
-
-        lookInput = new Vector2(lookX, lookY);
+        lookInput = new Vector2(value.Get<Vector2>().x, value.Get<Vector2>().y);
     }
 
     private void OnFireWeapon(InputValue value)
@@ -60,6 +54,6 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Rotate pitch, yaw, and roll
-        transform.Rotate(new Vector3(-lookInput.y * pitchRotationSpeed * Time.deltaTime, lookInput.x * yawRotationSpeed * Time.deltaTime, moveInput.x * rollRotationSpeed * Time.deltaTime), Space.Self);
+        transform.Rotate(new Vector3(-lookInput.y * pitchRotationSpeed, lookInput.x * yawRotationSpeed, moveInput.x * rollRotationSpeed), Space.Self);
     }
 }
