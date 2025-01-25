@@ -123,16 +123,19 @@ public class UI : MonoSingleton<UI>
     {
         if (Health < MaxHearts)
             Health++;
+    }
+
     void addPowerUp()
     {
         for (int i = 0; i < 2; i++)
         {
-            powerupAmmoText[i].text = powerUpAmmo[i].ToString();
+            //powerupAmmoText[i].text = powerUpAmmo[i].ToString();
         }
         addKunai();
         addShuriken();
 
     }
+
     void addKunai()
     {
         // this will overlap events
@@ -146,6 +149,7 @@ public class UI : MonoSingleton<UI>
             powerUpAmmo[0]--;
         }
     }
+
     void addShuriken()
     {
         // this will overlap events

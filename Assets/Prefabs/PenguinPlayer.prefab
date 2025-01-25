@@ -273,11 +273,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8119674774735217059}
+  cam: {fileID: 1396178043640762842}
   jetpackAcceleration: 1000
-  pitchRotationSpeed: 0.05
-  yawRotationSpeed: 0.05
-  rollRotationSpeed: 0.25
+  pitchRotationSpeed: 20
+  yawRotationSpeed: 20
+  rollRotationSpeed: 100
   maxVelocity: 15
+  rollAccelerationBoost: 1200
+  rollSpeedBoost: 2.4
+  rollCameraForwardOffset: 0.5
+  cameraNormalFOV: 60
+  cameraRollFOV: 59.5
 --- !u!114 &4792039864951779527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,8 +373,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.62
+  m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7848038176285068172
