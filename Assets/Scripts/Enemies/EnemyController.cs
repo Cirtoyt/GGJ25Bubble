@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     [SerializeField] private float _chaseAcceleration = 1000;
     [SerializeField] private float _chaseMaxSpeed = 1;
     [SerializeField] private float _uprightCorrectionSmoothingSpeed = 1;
+    [SerializeField] private float _playerInRangeDistance = 0;
 
     private int currentLifePoints;
 
@@ -21,6 +22,11 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
+        // CHeck to only update movement when not in range
+        float distToPlayer = Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
+        if (distToPlayer <= _playerInRangeDistance)
+            return;
+
         Vector3 targetDir = (PlayerController.Instance.transform.position - transform.position).normalized;
 
         rb.AddForce(targetDir * _chaseAcceleration * Time.deltaTime, ForceMode.Acceleration);

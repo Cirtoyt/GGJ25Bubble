@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3885755947282886830}
   - component: {fileID: 1438012319965572351}
+  - component: {fileID: 6425076918840805749}
   - component: {fileID: 877041243458426323}
   - component: {fileID: 7180160403306537028}
   - component: {fileID: 5448633871776378821}
@@ -53,6 +54,18 @@ MonoBehaviour:
   _chaseAcceleration: 1000
   _chaseMaxSpeed: 7
   _uprightCorrectionSmoothingSpeed: 1
+--- !u!114 &6425076918840805749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602251316632340985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616a3e2d1efa184479eb5bd538ac5d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &877041243458426323
 Rigidbody:
   m_ObjectHideFlags: 0
