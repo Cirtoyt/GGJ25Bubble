@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IAttackable
+public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IAttacker
 {
     [Header("Statics")]
     [SerializeField] private Rigidbody rb;
