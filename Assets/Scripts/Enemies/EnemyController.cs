@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     [SerializeField] private int _lifePoints = 2;
     [SerializeField] private float _chaseAcceleration = 1000;
     [SerializeField] private float _chaseMaxSpeed = 1;
-    [SerializeField] private float _uprightCorrectionSmoothingSpeed = 1;
+    //[SerializeField] private float _uprightCorrectionSmoothingSpeed = 1;
     [SerializeField] private float _playerInRangeDistance = 0;
     [SerializeField] private float _deathSoundDuration = 1;
 

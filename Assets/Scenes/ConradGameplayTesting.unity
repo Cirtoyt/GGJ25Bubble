@@ -482,11 +482,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5258576484643696294, guid: 13efc8a7c761dbb4da723b1931154d61,
-        type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 7996095516162941737, guid: 13efc8a7c761dbb4da723b1931154d61,
         type: 3}
       propertyPath: m_Pivot.x
@@ -586,16 +581,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8420718033112029366, guid: 13efc8a7c761dbb4da723b1931154d61,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 24.400024
-      objectReference: {fileID: 0}
-    - target: {fileID: 8612470819790172599, guid: 13efc8a7c761dbb4da723b1931154d61,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -25.400024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

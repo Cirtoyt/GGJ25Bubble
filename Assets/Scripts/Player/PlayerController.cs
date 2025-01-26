@@ -12,6 +12,7 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
     [SerializeField] private AudioSource _jetpackBubbleSFX;
     [SerializeField] private AudioSource _cluckSFX;
     [SerializeField] private AudioSource _quackSFX;
+    [SerializeField] private AudioSource _takeDamageSFX;
     [Header("Properties")]
     [Min(0)]
     [SerializeField] private float jetpackAcceleration = 1;
@@ -88,6 +89,7 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
         cam.fieldOfView = moveInput.x != 0 ? cameraRollFOV : cameraNormalFOV;
 
         // Fire weapon
+        Attack();
 
         ProcessAudio();
     }
@@ -120,13 +122,15 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
 
     public void TryAttack()
     {
-
+        // Needed?
     }
 
     public void Attack()
     {
         if (dying)
             return;
+
+        // TODO
     }
 
     public void TakeDamage(int damage)
@@ -134,9 +138,13 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
         if (dying)
             return;
 
+        Debug.Log("Player TakeDamage!");
+
         for (int i = 0; i < damage; i++)
         {
             UI.Instance.Damage();
+
+            _takeDamageSFX.Play();
         }
     }
 

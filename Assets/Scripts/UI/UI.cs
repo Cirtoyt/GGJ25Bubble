@@ -18,6 +18,7 @@ public class UI : MonoSingleton<UI>
     // Timer Variables
     [SerializeField] float timeRemaing = 40.0f;
     [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] private float endChaseTime = 30;
 
     // Progress Bar variables
 
@@ -31,6 +32,9 @@ public class UI : MonoSingleton<UI>
 
     // Damage? 
 
+    public float TimeRemaining => timeRemaing;
+    public float EndChaseTime => endChaseTime;
+
     protected override void Awake()
     {
         base.Awake();
@@ -43,8 +47,7 @@ public class UI : MonoSingleton<UI>
         SetHealth();
         SetTimer();
         GetFill();
-        Damage();
-        addPowerUp();
+        //addPowerUp();
     }
 
     void SetHealth()
@@ -85,7 +88,7 @@ public class UI : MonoSingleton<UI>
         {
             timeRemaing -= Time.deltaTime;
         }
-        if (timeRemaing < 30)
+        if (timeRemaing < endChaseTime)
         {
             timerText.color = Color.red;
         }

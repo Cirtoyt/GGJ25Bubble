@@ -21,5 +21,10 @@ public class Spaceship : MonoSingleton<Spaceship>
         {
             transform.position = GameManager.Instance.LevelSpline.EvaluatePosition(UI.Instance.GetTimerProgress());
         }
+
+        if (UI.Instance.TimeRemaining <= 0)
+        {
+            GameManager.Instance.FailGame();
+        }
     }
 }
