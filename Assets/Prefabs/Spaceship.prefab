@@ -918,6 +918,83 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8361670095516499030}
     m_Modifications:
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: _spaceJunkPrefabs.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: '_spaceJunkPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5333867257864549735, guid: b697c8fbc918796488f2a028e9788b95,
+        type: 3}
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: '_spaceJunkPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2180967260286433216, guid: 844c031b08af06d4b9441f96646c0937,
+        type: 3}
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: '_spaceJunkPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2180967260286433216, guid: 50f8788bbfdf4a94193b3abdf4d4c247,
+        type: 3}
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: '_spaceJunkPrefabs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2180967260286433216, guid: f098430d72000ef438ee1eaa774e2260,
+        type: 3}
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: '_spaceJunkPrefabs.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2180967260286433216, guid: eebb4bbfefb442e44a6c8e79fe71b18f,
+        type: 3}
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: '_spaceJunkPrefabs.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2180967260286433216, guid: 53da25715a28d1a4085f733b2e2721cd,
+        type: 3}
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: '_spaceJunkPrefabs.Array.data[6]'
+      value: 
+      objectReference: {fileID: 2180967260286433216, guid: 53da25715a28d1a4085f733b2e2721cd,
+        type: 3}
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: '_spaceJunkPrefabs.Array.data[7]'
+      value: 
+      objectReference: {fileID: 2180967260286433216, guid: 53da25715a28d1a4085f733b2e2721cd,
+        type: 3}
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: '_spaceJunkPrefabs.Array.data[8]'
+      value: 
+      objectReference: {fileID: 2180967260286433216, guid: 25cf7d0677d97a748b1b848c0a00143a,
+        type: 3}
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: '_spaceJunkPrefabs.Array.data[9]'
+      value: 
+      objectReference: {fileID: 2180967260286433216, guid: 25cf7d0677d97a748b1b848c0a00143a,
+        type: 3}
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: '_spaceJunkPrefabs.Array.data[10]'
+      value: 
+      objectReference: {fileID: 5155302386064296373, guid: 652a49178b862944f89281da39d38730,
+        type: 3}
+    - target: {fileID: 1375927100125165645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: '_spaceJunkPrefabs.Array.data[11]'
+      value: 
+      objectReference: {fileID: 5155302386064296373, guid: 652a49178b862944f89281da39d38730,
+        type: 3}
     - target: {fileID: 1609257075341453637, guid: 6dec5b7533048c440bb875e15f7d68a8,
         type: 3}
       propertyPath: m_LocalPosition.x
