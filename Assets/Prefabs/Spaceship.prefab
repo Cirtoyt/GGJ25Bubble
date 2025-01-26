@@ -138,6 +138,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4330305953289066317}
+  - {fileID: 9125121666349971161}
   - {fileID: 1144525200197677331}
   - {fileID: 7226264807383451747}
   m_Father: {fileID: 0}
@@ -339,4 +340,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3800733946754773014, guid: 30563edb3dd07b94a82565258a5857d4,
     type: 3}
   m_PrefabInstance: {fileID: 5833906362922924149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7563737327281921948
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8361670095516499030}
+    m_Modifications:
+    - target: {fileID: 1609257075341453637, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609257075341453637, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609257075341453637, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609257075341453637, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609257075341453637, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609257075341453637, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609257075341453637, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609257075341453637, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609257075341453637, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609257075341453637, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520134424171811645, guid: 6dec5b7533048c440bb875e15f7d68a8,
+        type: 3}
+      propertyPath: m_Name
+      value: SpaceJunkSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6dec5b7533048c440bb875e15f7d68a8, type: 3}
+--- !u!4 &9125121666349971161 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1609257075341453637, guid: 6dec5b7533048c440bb875e15f7d68a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 7563737327281921948}
   m_PrefabAsset: {fileID: 0}
