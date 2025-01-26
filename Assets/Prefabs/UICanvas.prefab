@@ -168,7 +168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7485325382644481205
 RectTransform:
   m_ObjectHideFlags: 0
@@ -820,6 +820,7 @@ MonoBehaviour:
   MaxHearts: 6
   timeRemaing: 180
   timerText: {fileID: 7643333966482905155}
+  endChaseTime: 45
   current: 0
   max: 180
   mask: {fileID: 8680830441456751392}
@@ -1055,7 +1056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4778425883486872763
 RectTransform:
   m_ObjectHideFlags: 0
