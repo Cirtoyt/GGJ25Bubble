@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -10,9 +9,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int _maxEnemySpawnVolume = 5;
     [SerializeField] private float _minEnemySpawnCooldown = 5;
     [SerializeField] private float _maxEnemySpawnCooldown = 20;
-    [SerializeField] private float _EnemySpawnCooldownOffsetRandomness = 2;
+    [SerializeField] private float _enemySpawnCooldownOffsetRandomness = 2;
 
     private float spawnCooldownTimer = 0;
+
+    private void Awake()
+    {
+        spawnCooldownTimer = _minEnemySpawnCooldown;
+    }
 
     private void Update()
     {
@@ -20,20 +24,22 @@ public class EnemySpawner : MonoBehaviour
 
         if (spawnCooldownTimer <= 0)
         {
-            spawnCooldownTimer = 0;
-
             // Get current difficulty based on player's progress towards the mothership
             float difficulty = GameManager.Instance.GetPlayerProgressTowardsSpaceship();
 
-            // Spawn enemies based on difficulty
-            int spawnAmount = _minEnemySpawnVolume + Mathf.FloorToInt((_maxEnemySpawnVolume - _minEnemySpawnVolume) * Mathf.Clamp01(difficulty - 0.05f));
+            // Spawn enemies based on difficulty, adding posistive bias to combat flooring
+            float posBias = (1f / (float)(_maxEnemySpawnVolume + 1)) * 0.5f;
+            Debug.Log(posBias);
+            int spawnAmount = _minEnemySpawnVolume + Mathf.FloorToInt((_maxEnemySpawnVolume - _minEnemySpawnVolume) * (difficulty + posBias));
             for (int i = 0; i < spawnAmount; i++)
             {
                 EnemyController newEnemy = Instantiate(_enemyToSpawn, transform.position, Quaternion.identity);
             }
 
-            // Add a new delay based on current difficulty, with a bit of randomness
-            // TODO
+            // Set a new delay based on current difficulty, with a bit of randomness
+            spawnCooldownTimer = (_maxEnemySpawnCooldown - ((_maxEnemySpawnCooldown - _minEnemySpawnCooldown) * difficulty)) + Random.Range(-_enemySpawnCooldownOffsetRandomness, _enemySpawnCooldownOffsetRandomness);
+
+            Debug.Log($"Spawned {spawnAmount} enemies! difficulty: {difficulty}, new spawnCooldownTimer = {spawnCooldownTimer}");
         }
     }
 }

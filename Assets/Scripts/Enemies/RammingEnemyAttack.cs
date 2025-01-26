@@ -41,8 +41,6 @@ public class RammingEnemyAttack : EnemyAttackModule
 
     public override void Attack()
     {
-        Debug.Log($"{gameObject} Attacking!");
-
         attackCoroutine = StartCoroutine(AttackSequence());
     }
 

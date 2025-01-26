@@ -1,9 +1,11 @@
+using NUnit;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines;
+using static UnityEngine.UI.Image;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -18,7 +20,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
     public float GetPlayerProgressAlongLevelSpline()
@@ -31,25 +34,22 @@ public class GameManager : MonoSingleton<GameManager>
     public float GetPlayerProgressTowardsSpaceship()
     {
         return GetProgressAlongLine(_levelSplineContainer.EvaluatePosition(0),
-                                    PlayerController.Instance.transform.position,
-                                    Spaceship.Instance.transform.position);
+                                    Spaceship.Instance.transform.position,
+                                    PlayerController.Instance.transform.position);
     }
 
     private float GetProgressAlongLine(Vector3 lineStart, Vector3 lineEnd, Vector3 pointAlongLine)
     {
-        var wander = pointAlongLine - lineStart;
-        Vector3 span = lineEnd - lineStart;
+        Vector3 line = lineEnd - lineStart;
 
-        // Compute how far along the line is the closest approach to our point.
-        float t = Vector3.Dot(wander, span) / span.sqrMagnitude;
+        // Check layer is behind line start
+        if (Vector3.Dot(pointAlongLine - lineStart, line) < 0)
+            return 0;
 
-        // Restrict this point to within the line segment from start to end.
-        t = Mathf.Clamp01(t);
+        Vector3 distanceAlongLine = Vector3.Project(pointAlongLine - lineStart, line);
+        //Vector3 nearestWorldPointAlongLine = lineStart + distanceAlongLine;
 
-        Vector3 nearest = lineStart + t * span;
-        float distanceAlongLevelVector = (nearest - pointAlongLine).magnitude;
-
-        // Get 0-1 progress value
-        return distanceAlongLevelVector / span.magnitude;
+        // Clamp to values over 1 and set to 1
+        return Mathf.Clamp01(distanceAlongLine.magnitude / line.magnitude);
     }
 }

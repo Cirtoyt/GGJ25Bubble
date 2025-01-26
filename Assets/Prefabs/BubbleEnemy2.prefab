@@ -74,7 +74,7 @@ MonoBehaviour:
   AttackDamage: 1
   _enemyController: {fileID: 3426150237844692779}
   _diesOnImpact: 0
-  _ramAttemptCooldown: 3
+  _ramAttemptCooldown: 4
   _ramAcceleration: 3000
   _respectsBaseMaxVelocity: 0
   _ramDuration: 2
@@ -166,7 +166,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.5
+  m_Radius: 1.85
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &342270173159566397
 PrefabInstance:

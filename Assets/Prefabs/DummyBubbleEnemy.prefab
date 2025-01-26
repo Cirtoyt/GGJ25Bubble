@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3885755947282886830}
   - component: {fileID: 1438012319965572351}
-  - component: {fileID: 203794899176990818}
+  - component: {fileID: 7835580380118197323}
   - component: {fileID: 877041243458426323}
   - component: {fileID: 7180160403306537028}
   - component: {fileID: 5448633871776378821}
   - component: {fileID: 390457148954325250}
   m_Layer: 7
-  m_Name: BubbleEnemy1
+  m_Name: DummyBubbleEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,15 +51,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 877041243458426323}
-  attackModule: {fileID: 203794899176990818}
+  attackModule: {fileID: 7835580380118197323}
   _lifePoints: 2
   _chaseAcceleration: 1000
   _chaseMaxSpeed: 13
   _uprightCorrectionSmoothingSpeed: 1
   _playerInRangeDistance: 3.402823e+38
   _deathSoundDuration: 1
-  CanMove: 1
---- !u!114 &203794899176990818
+  CanMove: 0
+--- !u!114 &7835580380118197323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,16 +68,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 602251316632340985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba6d8bbb8350c1429ca225deca96ec6, type: 3}
+  m_Script: {fileID: 11500000, guid: d0a5c949f53d7b745b9188cbe32539da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackDamage: 1
-  _enemyController: {fileID: 1438012319965572351}
-  _diesOnImpact: 1
-  _ramAttemptCooldown: 0
-  _ramAcceleration: 1000
-  _respectsBaseMaxVelocity: 1
-  _ramDuration: 2
+  AttackDamage: 0
 --- !u!54 &877041243458426323
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -166,7 +160,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.86
+  m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4757319246259589070
 PrefabInstance:
