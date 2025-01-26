@@ -117,6 +117,9 @@ public class UI : MonoSingleton<UI>
     {
         if (Health > 0)
             Health--;
+
+        if (Health <= 0)
+            PlayerController.Instance.OnDeath();
     }
 
     public void Heal()

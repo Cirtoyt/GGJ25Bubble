@@ -52,4 +52,14 @@ public class GameManager : MonoSingleton<GameManager>
         // Clamp to values over 1 and set to 1
         return Mathf.Clamp01(distanceAlongLine.magnitude / line.magnitude);
     }
+
+    public void FailGame()
+    {
+        Debug.Log("Game Lost!");
+    }
+
+    public void WinGame()
+    {
+        Debug.Log("Game Win!");
+    }
 }

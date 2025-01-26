@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     [Header("Statics")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] private EnemyAttackModule attackModule;
+    [SerializeField] private AudioSource _onDeathAudio;
     [Header("Properties")]
     [SerializeField] private int _lifePoints = 2;
     [SerializeField] private float _chaseAcceleration = 1000;
@@ -82,6 +83,8 @@ public class EnemyController : MonoBehaviour, IDamageable
         // Trigger particle effects
 
         // Trigger sound clip
+        if (_onDeathAudio != null)
+            _onDeathAudio.Play();
 
         gameObject.SetActive(false);
         Destroy(gameObject, _deathSoundDuration);

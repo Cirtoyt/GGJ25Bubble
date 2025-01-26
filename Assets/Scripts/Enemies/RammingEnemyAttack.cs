@@ -6,6 +6,7 @@ public class RammingEnemyAttack : EnemyAttackModule
 {
     [Header("Statics")]
     [SerializeField] private EnemyController _enemyController;
+    [SerializeField] private AudioSource _onHitAudio;
     [Header("Properties")]
     [SerializeField] private bool _diesOnImpact = false;
     [Min(0)]
@@ -94,6 +95,10 @@ public class RammingEnemyAttack : EnemyAttackModule
             {
                 damageable.TakeDamage(AttackDamage);
             }
+
+            // Play hit audio
+            if (_onHitAudio != null)
+                _onHitAudio.Play();
 
             attacking = false;
             _enemyController.CanMove = true;

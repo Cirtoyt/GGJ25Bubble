@@ -9,6 +9,9 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
     [Header("Statics")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Camera cam;
+    [SerializeField] private AudioSource _jetpackBubbleSFX;
+    [SerializeField] private AudioSource _cluckSFX;
+    [SerializeField] private AudioSource _quackSFX;
     [Header("Properties")]
     [Min(0)]
     [SerializeField] private float jetpackAcceleration = 1;
@@ -22,6 +25,10 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
     [SerializeField] private float rollCameraForwardOffset;
     [SerializeField] private float cameraNormalFOV = 60;
     [SerializeField] private float cameraRollFOV = 50;
+    [SerializeField] private float _minCluckQuackDelay = 5;
+    [SerializeField] private float _maxCluckQuackDelay = 15;
+
+    public Camera Cam => cam;
 
     private Vector2 moveInput = Vector2.zero;
     private Vector2 lookInput = Vector2.zero;
@@ -29,12 +36,14 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
 
     private Vector3 originLocalCameraLocalPos;
     private bool dying = false;
+    private float cluckQuackTimer = 0;
 
     protected override void Awake()
     {
         base.Awake();
 
         originLocalCameraLocalPos = cam.transform.localPosition;
+        cluckQuackTimer = _maxCluckQuackDelay;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -79,6 +88,34 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
         cam.fieldOfView = moveInput.x != 0 ? cameraRollFOV : cameraNormalFOV;
 
         // Fire weapon
+
+        ProcessAudio();
+    }
+
+    private void ProcessAudio()
+    {
+        // Movement SFX
+        if (moveInput != Vector2.zero && !_jetpackBubbleSFX.isPlaying)
+            _jetpackBubbleSFX.Play();
+        else if (moveInput == Vector2.zero && _jetpackBubbleSFX.isPlaying)
+            _jetpackBubbleSFX.Stop();
+
+        // Clucks & Quacks
+        cluckQuackTimer -= Time.deltaTime;
+        if (cluckQuackTimer <= 0)
+        {
+            cluckQuackTimer = Random.Range(_minCluckQuackDelay, _maxCluckQuackDelay);
+            switch(Random.Range(0, 3))
+            {
+                case 0:
+                case 1:
+                    _cluckSFX.Play();
+                    break;
+                case 2:
+                    _quackSFX.Play();
+                    break;
+            }
+        }
     }
 
     public void TryAttack()
@@ -108,7 +145,9 @@ public class PlayerController : MonoSingleton<PlayerController>, IDamageable, IA
         dying = true;
 
         // Play death sound
+        _quackSFX.Play();
 
         // Trigger end of game cut-scene
+        GameManager.Instance.FailGame();
     }
 }
