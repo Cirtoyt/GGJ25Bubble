@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6520134424171811645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1609257075341453637}
+  - component: {fileID: 1375927100125165645}
+  m_Layer: 0
+  m_Name: SpaceJunkSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1609257075341453637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520134424171811645}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.98, y: 0, z: 33.43}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1375927100125165645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520134424171811645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2c0fbfc43a1be4f99fb9478bcca03c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spaceJunkPrefabs:
+  - {fileID: 5155302386064296373, guid: 652a49178b862944f89281da39d38730, type: 3}
+  - {fileID: 5155302386064296373, guid: 652a49178b862944f89281da39d38730, type: 3}
+  - {fileID: 5333867257864549735, guid: b697c8fbc918796488f2a028e9788b95, type: 3}
+  - {fileID: 2180967260286433216, guid: 844c031b08af06d4b9441f96646c0937, type: 3}
+  _minSpawnVolume: 2
+  _maxSpawnVolume: 6
+  _maxSpawnOffsetRange: {x: 10, y: 10, z: 3}
+  _impulseForceOnSpawn: 100
+  _minRotationSpin: 7
+  _maxRotationSpin: 11
+  _minSpawnCooldown: 2
+  _maxSpawnCooldown: 5
+  _spawnCooldownOffsetRandomness: 2
