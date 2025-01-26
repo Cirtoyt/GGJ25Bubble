@@ -2,24 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectable : MonoBehaviour
+public abstract class Collectable : MonoBehaviour
 {
-    [SerializeField] GameObject pickup;
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
-        //add to pickup count
+        if (other.GetComponent<PlayerController>() == null)
+            return;
+
+        OnPickup();
+
+        // Do pop particles
+
         Destroy(gameObject);
     }
+
+    protected abstract void OnPickup();
 }
