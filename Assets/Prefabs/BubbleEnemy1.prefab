@@ -57,7 +57,6 @@ MonoBehaviour:
   _lifePoints: 2
   _chaseAcceleration: 1000
   _chaseMaxSpeed: 13
-  _uprightCorrectionSmoothingSpeed: 1
   _playerInRangeDistance: 3.402823e+38
   _deathSoundDuration: 1
   CanMove: 1

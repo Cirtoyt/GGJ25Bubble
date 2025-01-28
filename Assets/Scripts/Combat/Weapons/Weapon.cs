@@ -17,10 +17,9 @@ public class Weapon : MonoBehaviour
     public enum WeaponType
     {
         Dart,
-        Kunai,
         Shuriken,
-        Boomerang,
         Harpoon,
+        Boomerang,
     }
 
     public WeaponType type;

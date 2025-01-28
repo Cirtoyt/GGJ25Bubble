@@ -6,31 +6,30 @@ using UnityEngine;
 
 public class UI : MonoSingleton<UI>
 {
-
-    // Health Variables
+    [Header("Health Variables")]
     public int Health;
     [SerializeField] int NumHearts;
     [SerializeField] Image[] Hearts;
     [SerializeField] Sprite FullHeart;
     [SerializeField] Sprite EmptyHeart;
     [SerializeField] int MaxHearts;
+    [SerializeField] private AudioSource _healAudioSource;
 
-    // Timer Variables
+    [Header("Timer Variables")]
     [SerializeField] float timeRemaing = 40.0f;
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] private float endChaseTime = 30;
 
-    // Progress Bar variables
-
+    [Header("Progress Bar Variables")]
     public int current;
     public int max;
     public Image mask;
 
-    // powerup counter variables
-    [SerializeField] int[] powerUpAmmo;
-    [SerializeField] TextMeshProUGUI[] powerupAmmoText;
-
-    // Damage? 
+    [Header("Powerup Counter Variables")]
+    [SerializeField] List<int> powerupAmmo = new List<int>();
+    [SerializeField] List<Image> powerupIcons = new List<Image>();
+    [SerializeField] List<TextMeshProUGUI> powerupAmmoText = new List<TextMeshProUGUI>();
+    [SerializeField] private AudioSource _pickUpPowerUpAudioSource;
 
     public float TimeRemaining => timeRemaing;
     public float EndChaseTime => endChaseTime;
@@ -40,17 +39,24 @@ public class UI : MonoSingleton<UI>
         base.Awake();
 
         MaxHearts = 6;
+
+        foreach (Image icon in powerupIcons)
+        {
+            icon.color = Color.grey;
+        }
     }
 
     void Update()
     {
-        SetHealth();
         SetTimer();
-        GetFill();
-        //addPowerUp();
+        SetTimerUIFill();
+
+        SetHealthUI();
+
+        UpdatePowerupUI();
     }
 
-    void SetHealth()
+    void SetHealthUI()
     {
         for (int i = 0; i < Hearts.Length; i++)
         {
@@ -98,7 +104,7 @@ public class UI : MonoSingleton<UI>
         timerText.text = string.Format("{0:00} : {1:00}", mins, secs);
     }
 
-    void GetFill()
+    void SetTimerUIFill()
     {
         current = (int)timeRemaing;
 
@@ -129,44 +135,90 @@ public class UI : MonoSingleton<UI>
     {
         if (Health < MaxHearts)
             Health++;
+
+        _healAudioSource.Play();
     }
 
-    void addPowerUp()
+    private void UpdatePowerupUI()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < powerupAmmoText.Count; i++)
         {
-            //powerupAmmoText[i].text = powerUpAmmo[i].ToString();
-        }
-        addKunai();
-        addShuriken();
-
-    }
-
-    void addKunai()
-    {
-        // this will overlap events
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            powerUpAmmo[0]++;
-        }
-        // when powerup used
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            powerUpAmmo[0]--;
+            powerupAmmoText[i].text = powerupAmmo[i].ToString();
         }
     }
 
-    void addShuriken()
+    public int GetAmmoForPowerUp(Weapon.WeaponType weaponType)
     {
-        // this will overlap events
-        if (Input.GetKeyDown(KeyCode.Q))
+        switch (weaponType)
         {
-            powerUpAmmo[1]++;
+            case Weapon.WeaponType.Shuriken:
+                return powerupAmmo[0];
+            case Weapon.WeaponType.Harpoon:
+                return powerupAmmo[1];
+            default:
+                return 0;
         }
-        // when powerup used
-        if (Input.GetKeyDown(KeyCode.W))
+    }
+
+    public void AddPowerUp(Weapon.WeaponType weaponType, int ammoAmount)
+    {
+        switch (weaponType)
         {
-            powerUpAmmo[1]--;
+            case Weapon.WeaponType.Shuriken:
+                AddShuriken(ammoAmount);
+                break;
+            case Weapon.WeaponType.Harpoon:
+                AddHarpoon(ammoAmount);
+                break;
+        }
+
+        _pickUpPowerUpAudioSource.Play();
+    }
+
+    public void UseWeapon(Weapon.WeaponType weaponType)
+    {
+        switch (weaponType)
+        {
+            case Weapon.WeaponType.Shuriken:
+                RemoveShuriken();
+                break;
+            case Weapon.WeaponType.Harpoon:
+                RemoveHarpoon();
+                break;
+        }
+    }
+
+    private void AddShuriken(int addedAmmo)
+    {
+        powerupIcons[0].color = Color.white;
+
+        powerupAmmo[0] += addedAmmo;
+    }
+
+    private void RemoveShuriken()
+    {
+        powerupAmmo[0] -= 1;
+
+        if (powerupAmmo[0] <= 0)
+        {
+            powerupIcons[0].color = Color.grey;
+        }
+    }
+
+    private void AddHarpoon(int addedAmmo)
+    {
+        powerupIcons[1].color = Color.white;
+
+        powerupAmmo[1] += addedAmmo;
+    }
+
+    private void RemoveHarpoon()
+    {
+        powerupAmmo[1] -= 1;
+
+        if (powerupAmmo[1] <= 0)
+        {
+            powerupIcons[1].color = Color.grey;
         }
     }
 }

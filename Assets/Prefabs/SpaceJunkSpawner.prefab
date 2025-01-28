@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 2180967260286433216, guid: 844c031b08af06d4b9441f96646c0937, type: 3}
   _minSpawnVolume: 2
   _maxSpawnVolume: 6
-  _maxSpawnOffsetRange: {x: 10, y: 10, z: 3}
+  _maxSpawnOffsetRange: {x: 7.5, y: 7.5, z: 3}
   _impulseForceOnSpawn: 100
   _minRotationSpin: 7
   _maxRotationSpin: 11
