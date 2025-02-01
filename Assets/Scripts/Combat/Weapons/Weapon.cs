@@ -6,12 +6,12 @@ public class Weapon : MonoBehaviour
 {
 
     [Header("Statics")]
-    [SerializeField] GameObject mesh;
+    [SerializeField] GameObject _mesh;
+    [SerializeField] Collider _collider;
     [SerializeField] AudioSource _onHitAudio;
     [Header("Properties")]
-    [SerializeField] int damage;
-    [SerializeField] int speed;
-    [SerializeField] int pierce;
+    [SerializeField] int _damage = 1;
+    [SerializeField] int _pierce = 0;
     [SerializeField] float _hitAudioDuration = 1;
 
     public enum WeaponType
@@ -24,28 +24,41 @@ public class Weapon : MonoBehaviour
 
     public WeaponType type;
 
-    private void Awake()
-    {
-
-    }
-
-    private void Update()
-    {
-        
-    }
-
+    private bool selfDestructing = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out IDamageable damageable))
-            damageable.TakeDamage(damage);
+        if (selfDestructing)
+            return;
 
-        if (pierce < 1)
+        // Ignore the player
+        if (other.tag == "Player")
+            return;
+
+        // Deal damage if possible
+        if (other.TryGetComponent(out IDamageable damageable))
         {
-            mesh.SetActive(false);
-            Destroy(mesh, _hitAudioDuration);
+            damageable.TakeDamage(_damage);
         }
-        pierce--;
+
+        // Check if destroy self when cannot pierce any longer
+        if (_pierce < 1)
+        {
+            selfDestructing = true;
+            _collider.enabled = false;
+
+            // Hide mesh
+            _mesh.SetActive(false);
+
+            // Play audio
+            _onHitAudio.Play();
+
+            // Triggered audio length delayed self-destruction
+            Destroy(gameObject, _hitAudioDuration);
+        }
+
+        // Reduce pierce counter
+        _pierce--;
     }
 
 }

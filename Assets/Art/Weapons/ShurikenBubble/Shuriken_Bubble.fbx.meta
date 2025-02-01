@@ -1,9 +1,34 @@
 fileFormatVersion: 2
-guid: 55b318d35aa14d24b9cf820ea8b5e343
+guid: c06533f8476d8a64e90c8e0195a63608
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLade_Edge
+    second: {fileID: 2100000, guid: 9b669161d24e8eb4283e54464036e22e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blade_Side
+    second: {fileID: 2100000, guid: a572643d4b77c0649954646d562051fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Handle
+    second: {fileID: 2100000, guid: 259012e34f096f24fbd457479ccf9351, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface4
+    second: {fileID: 2100000, guid: 17a29234204ba8143b1cf81c55e23189, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface1
+    second: {fileID: 2100000, guid: 1a8ae2be2ad922a40b34c944d004245d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

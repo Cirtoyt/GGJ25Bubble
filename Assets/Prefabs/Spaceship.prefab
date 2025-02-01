@@ -685,6 +685,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8777991498013268327, guid: 30563edb3dd07b94a82565258a5857d4,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777991498013268327, guid: 30563edb3dd07b94a82565258a5857d4,
+        type: 3}
       propertyPath: _enemyToSpawn
       value: 
       objectReference: {fileID: 1438012319965572351, guid: 321b92af9028b5e46ac57d41c9683679,
@@ -782,6 +787,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777991498013268327, guid: 30563edb3dd07b94a82565258a5857d4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8777991498013268327, guid: 30563edb3dd07b94a82565258a5857d4,
         type: 3}
@@ -887,6 +897,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777991498013268327, guid: 30563edb3dd07b94a82565258a5857d4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8777991498013268327, guid: 30563edb3dd07b94a82565258a5857d4,
         type: 3}
@@ -1128,6 +1143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777991498013268327, guid: 30563edb3dd07b94a82565258a5857d4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8777991498013268327, guid: 30563edb3dd07b94a82565258a5857d4,
         type: 3}

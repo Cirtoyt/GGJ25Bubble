@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: 8dc6daf7bc5986c4085912dd2a0b9af5
+guid: 55b318d35aa14d24b9cf820ea8b5e343
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: af6455fa20967a34484bfba0cac28048, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: POint
+    second: {fileID: 2100000, guid: 27521e24071039d4280c70dd2879f916, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stripe
+    second: {fileID: 2100000, guid: 1ffc89eb8d472b04195bd58a4c29c006, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wings
+    second: {fileID: 2100000, guid: a0f19dd2b5acfba4f8d53fc543de603c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
