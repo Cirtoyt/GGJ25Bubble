@@ -49,12 +49,12 @@ MonoBehaviour:
   - {fileID: 5155302386064296373, guid: 652a49178b862944f89281da39d38730, type: 3}
   - {fileID: 5333867257864549735, guid: b697c8fbc918796488f2a028e9788b95, type: 3}
   - {fileID: 2180967260286433216, guid: 844c031b08af06d4b9441f96646c0937, type: 3}
-  _minSpawnVolume: 2
-  _maxSpawnVolume: 6
-  _maxSpawnOffsetRange: {x: 10, y: 10, z: 3}
+  _minSpawnVolume: 6
+  _maxSpawnVolume: 10
+  _maxSpawnOffsetRange: {x: 7.5, y: 7.5, z: 3}
   _impulseForceOnSpawn: 100
   _minRotationSpin: 7
   _maxRotationSpin: 11
-  _minSpawnCooldown: 2
-  _maxSpawnCooldown: 5
-  _spawnCooldownOffsetRandomness: 2
+  _minSpawnCooldown: 1
+  _maxSpawnCooldown: 2.5
+  _spawnCooldownOffsetRandomness: 1

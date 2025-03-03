@@ -76,7 +76,7 @@ public class RammingEnemyAttack : EnemyAttackModule
             Vector3 attackTargetDir = (PlayerController.Instance.transform.position - transform.position).normalized;
             _enemyController.RB.AddForce(attackTargetDir * _ramAcceleration * Time.deltaTime, ForceMode.Acceleration);
 
-            // Check ti respect or go crazy with max velocity
+            // Check to respect or go crazy with max velocity
             if (_respectsBaseMaxVelocity)
                 _enemyController.RB.velocity = Vector3.ClampMagnitude(_enemyController.RB.velocity, _enemyController.ChaseMaxSpeed);
         }

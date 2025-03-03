@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d3261f8aa23e44d8efa89923333b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yRotationSpeed: 1
 --- !u!135 &2131240124566292266
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -65,7 +66,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.6
+  m_Radius: 0.85
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5980597604434129470
 PrefabInstance:
