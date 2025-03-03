@@ -48,6 +48,7 @@ public class UI : MonoSingleton<UI>
 
         MaxHearts = 6;
 
+        // Set default power up visuals as non-active
         foreach (Image icon in powerupIcons)
         {
             icon.color = Color.grey;
@@ -70,7 +71,6 @@ public class UI : MonoSingleton<UI>
     {
         // Collect positions
         Vector3 spaceshipScreenPosition = PlayerController.Instance.Cam.WorldToScreenPoint(Spaceship.Instance.transform.position);
-        Debug.Log($"spaceshipScreenPosition: {spaceshipScreenPosition}");
 
         //EnemyController[] enemies = FindObjectsByType<EnemyController>(FindObjectsSortMode.None);
         //List<Vector3> enemyScreenPositions = new List<Vector3>();
@@ -136,7 +136,6 @@ public class UI : MonoSingleton<UI>
 
         // Lock image to bounds based on angle from 0, 0 (the shifted centre of screen position)
         Vector3 screenBounds = (screenCentre * _indicatorBoundsMultiplier) / _parentCanvas.scaleFactor;
-        Debug.Log($"screenBounds: {screenBounds}");
 
         // First check up & down
         // x = y/m
@@ -311,6 +310,7 @@ public class UI : MonoSingleton<UI>
     private void AddHarpoon(int addedAmmo)
     {
         powerupIcons[1].color = Color.white;
+        PlayerController.Instance.HeldHarpoonVisual.SetActive(true);
 
         powerupAmmo[1] += addedAmmo;
     }
@@ -322,6 +322,7 @@ public class UI : MonoSingleton<UI>
         if (powerupAmmo[1] <= 0)
         {
             powerupIcons[1].color = Color.grey;
+            PlayerController.Instance.HeldHarpoonVisual.SetActive(false);
         }
     }
 }

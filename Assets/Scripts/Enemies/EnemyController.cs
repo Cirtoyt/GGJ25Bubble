@@ -6,6 +6,8 @@ public class EnemyController : MonoBehaviour, IDamageable
 {
     [Header("Statics")]
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private GameObject _mesh;
+    [SerializeField] private List<Collider> _colliders = new List<Collider>();
     [SerializeField] private EnemyAttackModule attackModule;
     [SerializeField] private AudioSource _onDeathAudio;
     [Header("Properties")]
@@ -18,6 +20,7 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     public Rigidbody RB => rb;
     public float ChaseMaxSpeed => _chaseMaxSpeed;
+    public int CurrentLifePoints => currentLifePoints;
 
     public bool CanMove = true;
 
@@ -86,7 +89,9 @@ public class EnemyController : MonoBehaviour, IDamageable
         if (_onDeathAudio != null)
             _onDeathAudio.Play();
 
-        gameObject.SetActive(false);
+        _mesh.SetActive(false);
+        _colliders.ForEach(collider => collider.enabled = false);
+
         Destroy(gameObject, _deathSoundDuration);
     }
 }

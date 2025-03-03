@@ -53,12 +53,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2468977419798950277}
+  _mesh: {fileID: 612090672965357932}
+  _colliders:
+  - {fileID: 3398709874111831884}
+  - {fileID: 237953022709812987}
   attackModule: {fileID: 8683160947789583044}
   _onDeathAudio: {fileID: 1186304193959765855}
   _lifePoints: 2
   _chaseAcceleration: 1000
   _chaseMaxSpeed: 15
-  _uprightCorrectionSmoothingSpeed: 1
   _playerInRangeDistance: 20
   _deathSoundDuration: 1
   CanMove: 1
@@ -454,6 +457,12 @@ PrefabInstance:
 --- !u!4 &231167465468349398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f45e844765c7ffc498ac2fbe9d39f26c,
+    type: 3}
+  m_PrefabInstance: {fileID: 342270173159566397}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &612090672965357932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f45e844765c7ffc498ac2fbe9d39f26c,
     type: 3}
   m_PrefabInstance: {fileID: 342270173159566397}
   m_PrefabAsset: {fileID: 0}

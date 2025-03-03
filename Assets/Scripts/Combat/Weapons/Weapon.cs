@@ -13,6 +13,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] int _damage = 1;
     [SerializeField] int _pierce = 0;
     [SerializeField] float _hitAudioDuration = 1;
+    [SerializeField] bool _selfDestruct = false;
+    [SerializeField] float _timeTillSelfDestruct = 0.5f;
 
     public enum WeaponType
     {
@@ -26,19 +28,45 @@ public class Weapon : MonoBehaviour
 
     private bool selfDestructing = false;
 
+    private void Awake()
+    {
+        if (_selfDestruct)
+            StartCoroutine(StartDelayedSelfDestruct());
+    }
+
+    private IEnumerator StartDelayedSelfDestruct()
+    {
+        yield return new WaitForSeconds(_timeTillSelfDestruct);
+
+        if (selfDestructing)
+            yield break;
+
+        Destroy(gameObject);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (selfDestructing)
             return;
 
         // Ignore the player
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.name == "Shuriken")
             return;
 
         // Deal damage if possible
         if (other.TryGetComponent(out IDamageable damageable))
         {
-            damageable.TakeDamage(_damage);
+            if (other.gameObject.TryGetComponent(out EnemyController enemyController))
+            {
+                if (enemyController.CurrentLifePoints > 0)
+                {
+                    damageable.TakeDamage(_damage);
+                }
+            }
+            else
+            {
+                damageable.TakeDamage(_damage);
+            }
         }
 
         // Check if destroy self when cannot pierce any longer
@@ -51,10 +79,13 @@ public class Weapon : MonoBehaviour
             _mesh.SetActive(false);
 
             // Play audio
-            _onHitAudio.Play();
+            if (_onHitAudio != null)
+                _onHitAudio.Play();
 
             // Triggered audio length delayed self-destruction
             Destroy(gameObject, _hitAudioDuration);
+
+            //Debug.Log($"Weapon {name} hit {other.name}!");
         }
 
         // Reduce pierce counter

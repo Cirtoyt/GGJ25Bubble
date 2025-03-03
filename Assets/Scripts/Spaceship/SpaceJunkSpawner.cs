@@ -25,7 +25,7 @@ public class SpaceJunkSpawner : MonoBehaviour
 
     private void Awake()
     {
-        spawnCooldownTimer = _minSpawnCooldown;
+        spawnCooldownTimer = _minSpawnVolume;
     }
 
     private void Update()
@@ -52,7 +52,7 @@ public class SpaceJunkSpawner : MonoBehaviour
                 // Set origin rotation as random
                 Quaternion spawnRotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
 
-                Rigidbody newSpaceJunk = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+                Rigidbody newSpaceJunk = Instantiate(prefabToSpawn, spawnPosition, spawnRotation);
 
                 // Add initial move force
                 newSpaceJunk.AddForce(Vector3.back * _impulseForceOnSpawn, ForceMode.Impulse);
@@ -64,7 +64,7 @@ public class SpaceJunkSpawner : MonoBehaviour
             // Set a new delay based on current difficulty, with a bit of randomness
             spawnCooldownTimer = (_maxSpawnCooldown - ((_maxSpawnCooldown - _minSpawnCooldown) * difficulty)) + Random.Range(-_spawnCooldownOffsetRandomness, _spawnCooldownOffsetRandomness);
 
-            //Debug.Log($"Spawned {spawnAmount} space junk! difficulty: {difficulty}, new spawnCooldownTimer = {spawnCooldownTimer}");
+            Debug.Log($"Spawned {spawnAmount} space junk! difficulty: {difficulty}, new spawnCooldownTimer = {spawnCooldownTimer}");
         }
     }
 }

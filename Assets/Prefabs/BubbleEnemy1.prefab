@@ -52,6 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 877041243458426323}
+  _mesh: {fileID: 5675676238507913887}
+  _colliders:
+  - {fileID: 7180160403306537028}
+  - {fileID: 390457148954325250}
   attackModule: {fileID: 203794899176990818}
   _onDeathAudio: {fileID: 2400014342242371422}
   _lifePoints: 2
@@ -444,6 +448,12 @@ PrefabInstance:
 --- !u!4 &5012468844343846949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c1f0341a30975db429459f0296995c61,
+    type: 3}
+  m_PrefabInstance: {fileID: 4757319246259589070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5675676238507913887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c1f0341a30975db429459f0296995c61,
     type: 3}
   m_PrefabInstance: {fileID: 4757319246259589070}
   m_PrefabAsset: {fileID: 0}
